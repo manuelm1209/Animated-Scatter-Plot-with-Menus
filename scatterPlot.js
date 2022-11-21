@@ -21,7 +21,7 @@ export const scatterPlot = () => {
             .domain(d3.extent(data, yValue))
             // // Use next line to start the axis from 0
             // .domain([0, d3.max(data, yValue)])
-            .range([height - margin.bottom, margin.top]);
+            .range([height - margin.bottom - 30, margin.top]);
 
         const marks = data.map(d => ({
             x: x(xValue(d)),
@@ -65,7 +65,7 @@ export const scatterPlot = () => {
             .data([null])
             .join('g')
             .attr('class', 'x-axis')
-            .attr('transform', `translate(0, ${height - margin.bottom})`)
+            .attr('transform', `translate(0, ${height - margin.bottom - 30})`)
             .transition(t)
             .call(d3.axisBottom(x));
     };
